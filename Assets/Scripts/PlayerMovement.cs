@@ -42,7 +42,6 @@ public class PlayerMovement : MonoBehaviour
         Vector3 finalForce  = Swizzle.XOY(GetTargetVelocity() - GetCurrentVelocity()) * finalAcceleration;
 
         Rb.AddForce(finalForce,ForceMode.Force);
-        Debug.Log($"Raw Input: {inputVec}, Cam Adjusted Input: {CamAdjustInputs(inputVec)} finalForce : {finalForce}");
 
     }
 

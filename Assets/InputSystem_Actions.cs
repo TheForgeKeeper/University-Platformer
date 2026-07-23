@@ -181,6 +181,15 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ZoomCamera"",
+                    ""type"": ""Button"",
+                    ""id"": ""a0f12b44-8704-4fa8-8266-6b7516d3814f"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -579,6 +588,39 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""action"": ""ToggleCursor"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""ca3eb012-afee-42ee-9031-09babfac2dc5"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ZoomCamera"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""e9eb63dc-1f0a-403e-bf97-7bb2cb324e5e"",
+                    ""path"": ""<Mouse>/scroll/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ZoomCamera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""b5dbc4d9-a301-41e2-8622-75972ffbe2ba"",
+                    ""path"": ""<Mouse>/scroll/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ZoomCamera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         },
@@ -1174,6 +1216,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_Player_Next = m_Player.FindAction("Next", throwIfNotFound: true);
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
         m_Player_ToggleCursor = m_Player.FindAction("ToggleCursor", throwIfNotFound: true);
+        m_Player_ZoomCamera = m_Player.FindAction("ZoomCamera", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1277,6 +1320,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Next;
     private readonly InputAction m_Player_Sprint;
     private readonly InputAction m_Player_ToggleCursor;
+    private readonly InputAction m_Player_ZoomCamera;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -1328,6 +1372,10 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/ToggleCursor".
         /// </summary>
         public InputAction @ToggleCursor => m_Wrapper.m_Player_ToggleCursor;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/ZoomCamera".
+        /// </summary>
+        public InputAction @ZoomCamera => m_Wrapper.m_Player_ZoomCamera;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1384,6 +1432,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @ToggleCursor.started += instance.OnToggleCursor;
             @ToggleCursor.performed += instance.OnToggleCursor;
             @ToggleCursor.canceled += instance.OnToggleCursor;
+            @ZoomCamera.started += instance.OnZoomCamera;
+            @ZoomCamera.performed += instance.OnZoomCamera;
+            @ZoomCamera.canceled += instance.OnZoomCamera;
         }
 
         /// <summary>
@@ -1425,6 +1476,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @ToggleCursor.started -= instance.OnToggleCursor;
             @ToggleCursor.performed -= instance.OnToggleCursor;
             @ToggleCursor.canceled -= instance.OnToggleCursor;
+            @ZoomCamera.started -= instance.OnZoomCamera;
+            @ZoomCamera.performed -= instance.OnZoomCamera;
+            @ZoomCamera.canceled -= instance.OnZoomCamera;
         }
 
         /// <summary>
@@ -1795,6 +1849,13 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnToggleCursor(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "ZoomCamera" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnZoomCamera(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.
