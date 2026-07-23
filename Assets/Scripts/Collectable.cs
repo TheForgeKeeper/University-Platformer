@@ -4,7 +4,6 @@ using UnityEngine;
 public class Collectable : MonoBehaviour
 {
     private bool isCollected = false;
-
     public event Action OnCollect;
 
     private void OnTriggerEnter(Collider other)

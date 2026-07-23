@@ -6,7 +6,7 @@ public class DoorScript : MonoBehaviour , IDoor
     [SerializeField] private List<Animator> doorAnimator;
 
     private bool doorState = false; // false = closed, true = open
-
+    
     public void Open()
     {
         foreach (Animator animator in doorAnimator)

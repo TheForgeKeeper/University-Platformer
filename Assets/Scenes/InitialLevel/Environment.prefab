@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 3925090726478963755}
   - component: {fileID: 1932744487924196554}
   - component: {fileID: 4298844518898835622}
+  - component: {fileID: 5371589557308404613}
+  - component: {fileID: 4385574530966666096}
   m_Layer: 0
   m_Name: DoorUnlockToken.001
   m_TagString: Untagged
@@ -90,6 +92,39 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5371589557308404613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136194085169374333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f43f0af17a9d6a5439a58080302c7ae3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Collectable
+--- !u!65 &4385574530966666096
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136194085169374333}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5010636, y: 0.7366849, z: 0.5010636}
+  m_Center: {x: 0, y: 0.82136935, z: 0}
 --- !u!1 &690565208916364087
 GameObject:
   m_ObjectHideFlags: 0
@@ -102,7 +137,7 @@ GameObject:
   - component: {fileID: 7699880105360404024}
   - component: {fileID: 2738633120804095638}
   - component: {fileID: 1017635406541025157}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DoorUpper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +153,7 @@ Transform:
   m_GameObject: {fileID: 690565208916364087}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.4787436, y: 1.4999998, z: -5.270897}
+  m_LocalPosition: {x: 1.4787436, y: 3, z: -5.270897}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -461,6 +496,8 @@ GameObject:
   - component: {fileID: 300916466013463892}
   - component: {fileID: 7053108780962939029}
   - component: {fileID: 5999184734887189807}
+  - component: {fileID: 8099374303243705679}
+  - component: {fileID: 3829941895263658325}
   m_Layer: 0
   m_Name: DoorUnlockToken.003
   m_TagString: Untagged
@@ -477,7 +514,7 @@ Transform:
   m_GameObject: {fileID: 4338417872256080258}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.1445098, y: 0.6242312, z: -3.103417}
+  m_LocalPosition: {x: -3.1445098, y: 0.53, z: -3.103417}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -540,6 +577,39 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8099374303243705679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4338417872256080258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f43f0af17a9d6a5439a58080302c7ae3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Collectable
+--- !u!65 &3829941895263658325
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4338417872256080258}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5010636, y: 0.7366849, z: 0.5010636}
+  m_Center: {x: 0, y: 0.82136935, z: 0}
 --- !u!1 &4583325050260391306
 GameObject:
   m_ObjectHideFlags: 0
@@ -551,7 +621,8 @@ GameObject:
   - component: {fileID: 7315133955719445700}
   - component: {fileID: 7081347454368122567}
   - component: {fileID: 3744685351981234730}
-  m_Layer: 0
+  - component: {fileID: 7467849449148970719}
+  m_Layer: 7
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -630,6 +701,28 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &7467849449148970719
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4583325050260391306}
+  m_Material: {fileID: 13400000, guid: 4abcf782096ea064a864386c4434af51, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -462981019419857548, guid: 663a7abef0c7de846b755a2fff83c839, type: 3}
 --- !u!1 &7415184684398811415
 GameObject:
   m_ObjectHideFlags: 0
@@ -642,7 +735,7 @@ GameObject:
   - component: {fileID: 3116886546671427996}
   - component: {fileID: 636246149251924467}
   - component: {fileID: 5067874952636197318}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DoorLower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -754,6 +847,8 @@ GameObject:
   - component: {fileID: 8019137003594514330}
   - component: {fileID: 1033504991022029264}
   - component: {fileID: 4489351460299868413}
+  - component: {fileID: 4690960593493044467}
+  - component: {fileID: 1081334774216071572}
   m_Layer: 0
   m_Name: DoorUnlockToken.002
   m_TagString: Untagged
@@ -833,3 +928,36 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4690960593493044467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8453101527509694935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f43f0af17a9d6a5439a58080302c7ae3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Collectable
+--- !u!65 &1081334774216071572
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8453101527509694935}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5010636, y: 0.7366849, z: 0.5010636}
+  m_Center: {x: 0, y: 0.82136935, z: 0}
