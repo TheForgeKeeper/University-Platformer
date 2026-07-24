@@ -9,6 +9,16 @@ using UnityEngine;
 {
     class Swizzle
     {
+        public static Vector3 XOZ(Vector3 input)
+        {
+            return new Vector3(input.x, 0, input.z);
+        }
+
+        public static Vector3 XOX(float x)
+        {
+            return new Vector3(x, 0, x);
+        }
+
         public static Vector2 XZ(Vector3 input)
         {
             return new Vector2(input.x, input.z);

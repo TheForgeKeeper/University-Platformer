@@ -6,16 +6,14 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     #region Fields
-    [SerializeField] float maxSpeed = 5f;
-    [SerializeField] float acceleration = 3f;
-    [SerializeField] float deceleration = 7f;
-    //[SerializeField] float jumpForce = 5f;
+    [SerializeField] private float maxSpeed = 5f;
+    [SerializeField] private float acceleration = 3f;
+    [SerializeField] private float deceleration = 7f;
     
-    [SerializeField] InputActionReference MovementAction;
-    [SerializeField] InputActionReference ToggleCursor;
-    //[SerializeField] InputActionReference JumpAction;
-    [SerializeField] Transform cam_transform;
-
+    [SerializeField]private InputActionReference MovementAction;
+    [SerializeField]private InputActionReference ToggleCursor;
+    
+    private Transform CamTransform;
     private Vector2 camAdjustedInput;
     private Rigidbody Rb;
 
@@ -26,6 +24,10 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 GetTargetVelocity() => camAdjustedInput * maxSpeed;
     private bool isDecelerating() => GetTargetVelocity().magnitude < GetCurrentVelocity().magnitude;
 
+    public void InjectData(Transform CamTransform)
+    {
+        this.CamTransform = CamTransform;
+    }
 
     private void Start()
     {
@@ -47,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector2 CamAdjustInputs(Vector2 rawInput)
     {
-        float camRotationY = cam_transform.eulerAngles.y * Mathf.Deg2Rad;
+        float camRotationY = CamTransform.eulerAngles.y * Mathf.Deg2Rad;
         Vector2 adjustedInput;
         adjustedInput.x = rawInput.x * Mathf.Cos(camRotationY) + rawInput.y * Mathf.Sin(camRotationY);
         adjustedInput.y = -rawInput.x * Mathf.Sin(camRotationY) + rawInput.y * Mathf.Cos(camRotationY);
