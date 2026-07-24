@@ -1,7 +1,7 @@
 using JdnUniPlat.Orbs;
 using UnityEngine;
 
-public class PlayerReferenceHolder : MonoBehaviour
+public class Player_RH : MonoBehaviour
 {
     [SerializeField] private GameObject mainCamera;
     [SerializeField] private GameObject Canvas;
