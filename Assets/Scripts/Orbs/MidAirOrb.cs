@@ -6,10 +6,12 @@ namespace JdnUniPlat.Orbs
     public class MidAirOrb : Ab_Orb
     {
         private MidAirJump_DH jumpDataHolder;
+        protected override IOrbStack OrbStack { get; set; }
 
-        public void InjectData(MidAirJump_DH dataHolder)
+        public void InjectData(IOrbStack orbStack, MidAirJump_DH dataHolder)
         {
             jumpDataHolder = dataHolder;
+            OrbStack = orbStack;
         }
 
         public override JdnOrbs OrbType => JdnOrbs.MidAirOrb;

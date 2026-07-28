@@ -9,6 +9,7 @@ namespace JdnUniPlat.Orbs
         [SerializeField] private MonoBehaviour orbStackUnv;
         [SerializeField] private MonoBehaviour cameraRelayUnv;
         [SerializeField] private MonoBehaviour playerGravityUnv;
+        [SerializeField] private PlayerMovement PlayerMovement;
         [SerializeField] private DashOrb_DH dashOrbDataHolder;
         [SerializeField] private MidAirJump_DH airJumpDataHolder;
 
@@ -29,11 +30,11 @@ namespace JdnUniPlat.Orbs
                 switch (orb.OrbType) 
                 {
                     case JdnOrbs.MidAirOrb:
-                        (orb as MidAirOrb).InjectData(airJumpDataHolder);
+                        (orb as MidAirOrb).InjectData(orbStack, airJumpDataHolder);
                         break;
 
                     case JdnOrbs.DashOrb:
-                        (orb as DashOrb).InjectData(dashOrbDataHolder,playerGravity,camRelay);
+                        (orb as DashOrb).InjectData(orbStack ,dashOrbDataHolder,playerGravity,camRelay);
                         break;
                 }
 

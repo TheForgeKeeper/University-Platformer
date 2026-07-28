@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "DataHolders/Orbs_DHs/DashOrb_DH")]
 public class DashOrb_DH : ScriptableObject
 {
     [SerializeField]private float _dashForce;

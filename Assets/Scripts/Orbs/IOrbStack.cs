@@ -1,6 +1,6 @@
 ﻿namespace JdnUniPlat.Orbs
 {
-    internal interface IOrbStack
+    public interface IOrbStack
     {
         void PushOrb(Ab_Orb orb);
 

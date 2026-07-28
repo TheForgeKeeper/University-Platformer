@@ -10,17 +10,21 @@ namespace JdnUniPlat.Orbs
         private IPlayerGravity playerGravity;
         private ICameraRelay cameraRelay;
 
-        public void InjectData(DashOrb_DH dataHolder, IPlayerGravity playerGravity , ICameraRelay cameraRelay)
+        protected override IOrbStack OrbStack { get; set; }
+
+        public void InjectData(IOrbStack OrbStack, DashOrb_DH dataHolder, IPlayerGravity playerGravity , ICameraRelay cameraRelay)
         {
             this.dashOrb_DH = dataHolder;
             this.playerGravity = playerGravity;
             this.cameraRelay = cameraRelay;
+            this.OrbStack = OrbStack;
         }
 
         public override JdnOrbs OrbType => JdnOrbs.DashOrb;
 
         public override void BreakOrb(Rigidbody rb)
         {
+            Debug.Log("dashOrbBroke");
             // Cancel Initial forces
             playerGravity.DisableGravity();
             rb.linearVelocity = Swizzle.XOZ(rb.linearVelocity);
@@ -30,9 +34,13 @@ namespace JdnUniPlat.Orbs
             rb.AddForce(fireDirection * dashOrb_DH.dashForce, ForceMode.Impulse);
 
             // Enable Gravity
-            JdnCoroutines.CallAfterTime(playerGravity.EnableGravity,dashOrb_DH.dashDuration);
+            playerGravity.EnableGravityAfterTime(dashOrb_DH.dashDuration);
         }
 
-        
+        private void wrapper()
+        {
+            Debug.Log("re-enabled graviy");
+            playerGravity.EnableGravity();
+        }
     }
 }

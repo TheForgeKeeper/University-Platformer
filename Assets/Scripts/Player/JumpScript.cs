@@ -4,8 +4,6 @@ using UnityEngine.InputSystem;
 public class JumpScript : MonoBehaviour
 {
     [SerializeField] private float jumpForce = 5f;
-    [SerializeField] private float fallingGravity = 19.2f;
-    [SerializeField] private float standardGravity = 9.8f;
 
     [SerializeField] private InputActionReference jumpBind;
     [SerializeField] private GroundCheck groundCheck;
@@ -13,10 +11,14 @@ public class JumpScript : MonoBehaviour
     private Rigidbody Rb;
     private float gravity;
 
+    public void InjectData(GroundCheck groundCheck)
+    {
+        this.groundCheck = groundCheck;
+    }
+
     private void Start()
     {
         Rb = GetComponent<Rigidbody>();
-        Rb.useGravity = false;
     }
 
     private void Jump(InputAction.CallbackContext context)
@@ -27,18 +29,6 @@ public class JumpScript : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
-    {
-        if(Rb.linearVelocity.y < 0)
-        {
-            gravity = fallingGravity;
-        }
-        else
-        {
-            gravity = standardGravity;
-        }
-        Rb.AddForce(Vector3.down * gravity, ForceMode.Acceleration);
-    }
 
     private void OnEnable()
     {
