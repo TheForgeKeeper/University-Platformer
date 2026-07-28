@@ -17,7 +17,7 @@ public class UnityDoorScript : MonoBehaviour , IDoor
         isDoorOpen = false;
 
         Vector3 finalDoorPosition = hDoor.transform.position + (Vector3.down * openHeight);
-        StartCoroutine( Interpolator.Interpolate<Vector3>
+        StartCoroutine( JdnCoroutines.Interpolate<Vector3>
         (
             () => hDoor.transform.position,
             v => hDoor.transform.position = v,
@@ -28,7 +28,7 @@ public class UnityDoorScript : MonoBehaviour , IDoor
         ));
 
         finalDoorPosition = lDoor.transform.position + (Vector3.up * openHeight);
-        StartCoroutine( Interpolator.Interpolate<Vector3>
+        StartCoroutine( JdnCoroutines.Interpolate<Vector3>
         (
             () => lDoor.transform.position,
             v => lDoor.transform.position = v,
@@ -47,7 +47,7 @@ public class UnityDoorScript : MonoBehaviour , IDoor
         isDoorOpen = true;
         Debug.Log($"opendoor from {this.gameObject.name}");
         Vector3 finalDoorPosition = hDoor.transform.position + (Vector3.up * openHeight);
-        StartCoroutine( Interpolator.Interpolate<Vector3>
+        StartCoroutine( JdnCoroutines.Interpolate<Vector3>
         (
             () => hDoor.transform.position,
             v => hDoor.transform.position = v,
@@ -58,7 +58,7 @@ public class UnityDoorScript : MonoBehaviour , IDoor
         ));
 
         finalDoorPosition = lDoor.transform.position + (Vector3.down * openHeight);
-        StartCoroutine(Interpolator.Interpolate<Vector3>
+        StartCoroutine(JdnCoroutines.Interpolate<Vector3>
         (
             () => lDoor.transform.position,
             v => lDoor.transform.position = v,

@@ -96,7 +96,7 @@ using UnityEngine;
         }
     }
 
-    class Interpolator
+    class JdnCoroutines
     {
         public static AnimationCurve F4ToCurve(float4 f4)
         {
@@ -140,6 +140,12 @@ using UnityEngine;
             setter(targetValue);
             statusFlagSetter?.Invoke(false); // Set end flag if provided
             EndFucntion?.Invoke();
+        }
+
+        public static IEnumerator CallAfterTime(Action action,float time)
+        {
+            yield return new WaitForSeconds(time);
+            action();
         }
     }
 

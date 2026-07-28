@@ -5,14 +5,19 @@ namespace JdnUniPlat.Orbs
 {
     public class MidAirOrb : Ab_Orb
     {
-        [SerializeField] private float jumpForce = 7f;
+        private MidAirJump_DH jumpDataHolder;
+
+        public void InjectData(MidAirJump_DH dataHolder)
+        {
+            jumpDataHolder = dataHolder;
+        }
 
         public override JdnOrbs OrbType => JdnOrbs.MidAirOrb;
 
         public override void BreakOrb(Rigidbody rb)
         {
             rb.linearVelocity = Swizzle.XOZ(rb.linearVelocity);
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            rb.AddForce(Vector3.up * jumpDataHolder.jumpForce, ForceMode.Impulse);
         }
     }
 }

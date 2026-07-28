@@ -1,19 +1,20 @@
 using JdnUniPlat.Orbs;
+using JdnUtilities;
 using UnityEngine;
 
 public class Player_RH : MonoBehaviour
 {
-    [SerializeField] private GameObject mainCamera;
+    [SerializeField] private MonoBehaviour camRelayUnv;
     [SerializeField] private GameObject Canvas;
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private OrbStack orbStack;
 
-    private Transform GetCameraTransform() => mainCamera.transform;
     private OrbStackUI GetOrbStackUI() => Canvas.GetComponent<OrbStackUI>();
 
     private void Awake()
     {
-        playerMovement.InjectData(GetCameraTransform());
-        orbStack.InjectData(GetOrbStackUI());
+        JdnValidate.ValidateInterface(camRelayUnv, out ICameraRelay camRelay);
+        playerMovement.InjectData(camRelay);  
+        orbStack.InjectData(GetOrbStackUI()); 
     }
 }

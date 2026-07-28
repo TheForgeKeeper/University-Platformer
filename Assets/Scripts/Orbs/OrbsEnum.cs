@@ -4,6 +4,7 @@ namespace JdnUniPlat.Orbs
 {
     public enum JdnOrbs
     {
-        MidAirOrb
+        MidAirOrb,
+        DashOrb
     }
 }
