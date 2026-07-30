@@ -1,7 +1,7 @@
 
 namespace JdnUniPlat.Loading
 {
-    public enum SceneAbstaction
+    public enum SceneAbstraction
     {
         level1Scene = 0,
     }

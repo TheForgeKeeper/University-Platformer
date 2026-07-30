@@ -4,16 +4,10 @@ using UnityEngine.SceneManagement;
 
 namespace JdnUniPlat.Loading
 {
-    public class RestartScript : MonoBehaviour, IRestartScript
+    public class RestartScript : MonoBehaviour
     {
         [SerializeField] private InputActionReference restartBinds;
-
-        private SceneAbstaction sceneToLoad;
-
-        public void InjectData(SceneAbstaction _sceneToLoad)
-        {
-            this.sceneToLoad = _sceneToLoad;
-        }
+        [SerializeField] private SceneAbstraction sceneToLoad;
 
         private void RestartRun(InputAction.CallbackContext context)
         {

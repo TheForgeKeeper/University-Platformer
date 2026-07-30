@@ -1,32 +1,32 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 namespace Assets.Scripts.Loading
 {
-    public class ReadyScreenScript : MonoBehaviour, IReadyScreenScript
+    public class ReadyScreenScript : MonoBehaviour
     {
         [SerializeField] private InputActionReference onReadyBinds;
         [SerializeField] private InputActionReference playerMap;
-        private Canvas isNotReadyScreenCanvas;
+        [SerializeField] private Canvas isNotReadyCanvas;
+
+        public UnityEvent OnReady;
+
 
         private void Start()
         {
-            onReadyBinds.action.Enable();
             playerMap.action.actionMap.Disable();
-            isNotReadyScreenCanvas.enabled = true;
-        }
-
-        public void InjectData(Canvas isReadyScreenCanvas)
-        {
-            this.isNotReadyScreenCanvas = isReadyScreenCanvas;
+            onReadyBinds.action.Enable();
+            isNotReadyCanvas.enabled = true;
         }
 
         private void StartRunOnReady(InputAction.CallbackContext context)
         {
             playerMap.action.actionMap.Enable();
             onReadyBinds.action.Disable();
-            isNotReadyScreenCanvas.enabled = false;
+            isNotReadyCanvas.enabled = false;
+            OnReady?.Invoke();
         }
 
         private void OnEnable()

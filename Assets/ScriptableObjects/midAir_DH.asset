@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f1b5f45b0aba02449ebb0c164cf0eb6, type: 3}
   m_Name: midAir_DH
   m_EditorClassIdentifier: Assembly-CSharp::MidAirJumpDataHolder
-  jumpForce: 7
+  _jumpForce: 8

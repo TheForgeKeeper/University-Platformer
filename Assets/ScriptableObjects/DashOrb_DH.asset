@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8eb6014242639d24c9e2d05e2d260bb3, type: 3}
   m_Name: DashOrb_DH
   m_EditorClassIdentifier: Assembly-CSharp::DashOrb_DH
-  _dashForce: 0
-  _dashDuration: 0
+  _dashForce: 30
+  _dashDuration: 0.43
