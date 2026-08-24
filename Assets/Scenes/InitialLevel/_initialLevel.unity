@@ -455,7 +455,7 @@ MonoBehaviour:
         AccelTime: 0.8
         DecelTime: 0.8
   PlayerIndex: -1
-  AutoEnableInputs: 1
+  AutoEnableInputs: 0
 --- !u!114 &215326082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1295,9 +1295,9 @@ MonoBehaviour:
   OnPlayerEnterTrigger:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1162932315}
-        m_TargetAssemblyTypeName: SceneLoaderUniPlat, Assembly-CSharp
-        m_MethodName: LoadScene
+      - m_Target: {fileID: 1440103225}
+        m_TargetAssemblyTypeName: WinScreenAppear, Assembly-CSharp
+        m_MethodName: EnableWinScreen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1392,9 +1392,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1360758141}
-  - component: {fileID: 1360758140}
   - component: {fileID: 1360758139}
-  - component: {fileID: 1360758142}
   m_Layer: 0
   m_Name: RestartManager
   m_TagString: Untagged
@@ -1415,22 +1413,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::JdnUniPlat.Loading.RestartScript
   restartBinds: {fileID: -5993490310415638341, guid: 052faaac586de48259a63d0c4782560b, type: 3}
---- !u!114 &1360758140
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1360758138}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74a5b50b074c6884cb642f16c8f56883, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::JdnUniPlat.Loading.RestartManager_RH
-  readyScreen: {fileID: 2041552065}
   sceneToLoad: 0
-  restartScriptUnv: {fileID: 1360758139}
-  readyScreenScriptUnv: {fileID: 1360758142}
 --- !u!4 &1360758141
 Transform:
   m_ObjectHideFlags: 0
@@ -1446,20 +1429,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1360758142
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1360758138}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 720dd1aa3908ca3429a4ca1961335c55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.Loading.ReadyScreenScript
-  onReadyBinds: {fileID: 3884829082084738764, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  playerMap: {fileID: 7040659881675835329, guid: 052faaac586de48259a63d0c4782560b, type: 3}
 --- !u!1 &1440103221
 GameObject:
   m_ObjectHideFlags: 0
@@ -1471,6 +1440,7 @@ GameObject:
   - component: {fileID: 1440103222}
   - component: {fileID: 1440103224}
   - component: {fileID: 1440103223}
+  - component: {fileID: 1440103225}
   m_Layer: 5
   m_Name: WinScreen
   m_TagString: Untagged
@@ -1540,6 +1510,24 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1440103225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440103221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe5fff54e08326645b39e3623c0b0283, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WinScreenAppear
+  mapsToDisable:
+  - {fileID: 1120369429361536294, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  winScreenCanvas: {fileID: 1440103224}
+  OnWin:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1521812026
 GameObject:
   m_ObjectHideFlags: 0
@@ -1811,6 +1799,7 @@ GameObject:
   - component: {fileID: 2041552067}
   - component: {fileID: 2041552065}
   - component: {fileID: 2041552066}
+  - component: {fileID: 2041552068}
   m_Layer: 5
   m_Name: ReadyScreen
   m_TagString: Untagged
@@ -1879,6 +1868,24 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2041552068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2041552064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 720dd1aa3908ca3429a4ca1961335c55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.Loading.ReadyScreenScript
+  onReadyBinds: {fileID: 3884829082084738764, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  playerMap: {fileID: 1120369429361536294, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  isNotReadyCanvas: {fileID: 2041552065}
+  OnReady:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2129420280
 GameObject:
   m_ObjectHideFlags: 0
