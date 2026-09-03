@@ -4286,7 +4286,6 @@ GameObject:
   - component: {fileID: 1686231474}
   - component: {fileID: 1686231477}
   - component: {fileID: 1686231476}
-  - component: {fileID: 1686231475}
   m_Layer: 5
   m_Name: PauseScreen
   m_TagString: Untagged
@@ -4321,24 +4320,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1686231475
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1686231473}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 720dd1aa3908ca3429a4ca1961335c55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.Loading.ReadyScreenScript
-  onReadyBinds: {fileID: 3884829082084738764, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  playerMap: {fileID: 1120369429361536294, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  isNotReadyCanvas: {fileID: 1686231477}
-  OnReady:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &1686231476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4363,7 +4344,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1686231473}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -5420,7 +5401,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2041552064}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}

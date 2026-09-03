@@ -41,8 +41,7 @@ public class PlayerMovement : MonoBehaviour
         float finalAcceleration = isDecelerating() ? deceleration : acceleration;
         Vector3 finalForce  = Swizzle.XOY(GetTargetVelocity() - GetCurrentVelocity()) * finalAcceleration;
 
-        Rb.AddForce(finalForce,ForceMode.Force);
-
+        Rb.AddForce(finalForce ,ForceMode.Force);
     }
 
     private void OnEnable()

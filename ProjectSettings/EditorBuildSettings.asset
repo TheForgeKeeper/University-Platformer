@@ -8,9 +8,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/InitialLevel/_initialLevel.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 0
+    path: Assets/Scenes/CastleRoom1/R1 Old.unity
+    guid: 8b0a892fa3edcf4418b70073afa9aa6f
   - enabled: 1
     path: Assets/Scenes/CastleRoom1/R1.unity
-    guid: 8b0a892fa3edcf4418b70073afa9aa6f
+    guid: d34cfad9ea47f5c45a567cd096e7106f
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
