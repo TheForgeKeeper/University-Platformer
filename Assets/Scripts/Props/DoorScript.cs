@@ -1,32 +1,59 @@
 using UnityEngine;
-using System.Collections.Generic;
+using JdnUtilities;
 
 public class DoorScript : MonoBehaviour , IDoor
 {
-    [SerializeField] private List<Animator> doorAnimator;
-
-    private bool doorState = false; // false = closed, true = open
-    
-    public void Open()
-    {
-        foreach (Animator animator in doorAnimator)
-        {
-            animator.SetBool("doorOpen", true);
-            doorState = true;
-        }
-    }
+    [SerializeField] private float degreesToOpen = 90f; // Degrees to rotate when opening the door
+    [SerializeField] private float animationDuration = 1f;
+    [SerializeField] private AnimationCurve interpolationCurve;
+   
+    private Quaternion closedRotation;
+    private Quaternion openedRotation;
+    private bool isDoorOpen = false;
+    private Coroutine animationCoroutine;
 
     public void Close()
     {
-        foreach (Animator animator in doorAnimator)
-        {
-            animator.SetBool("doorOpen", false);
-            doorState = false;
-        }
+        if(animationCoroutine != null) StopCoroutine(animationCoroutine);
+        transform.rotation = openedRotation;
+
+        animationCoroutine = StartCoroutine(JdnCoroutines.Interpolate(
+            () => transform.rotation,
+            (Quaternion q) => transform.rotation = q,
+            closedRotation,
+            animationDuration,
+            interpolationCurve,
+            Quaternion.SlerpUnclamped
+        ));
+
+        isDoorOpen = false;
     }
 
     public bool IsDoorOpen()
     {
-        return doorState;
+        return isDoorOpen;
     }
+
+    public void Open()
+    {
+        if (animationCoroutine != null) StopCoroutine(animationCoroutine);
+        transform.rotation = closedRotation;
+
+        animationCoroutine = StartCoroutine(JdnUtilities.JdnCoroutines.Interpolate(
+            () => transform.rotation,
+            (Quaternion q) => transform.rotation = q,
+            openedRotation,
+            animationDuration,
+            interpolationCurve,
+            Quaternion.SlerpUnclamped
+            ));
+        isDoorOpen = true;
+    }
+
+    private void Start()
+    {
+        closedRotation = transform.rotation;
+        openedRotation = closedRotation * Quaternion.AngleAxis(degreesToOpen, Vector3.up);
+    }
+
 }
