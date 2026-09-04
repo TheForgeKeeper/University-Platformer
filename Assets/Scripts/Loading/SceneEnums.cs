@@ -1,8 +1,9 @@
 
 namespace JdnUniPlat.Loading
 {
-    public enum SceneAbstraction
+    public enum SceneAbstraction    
     {
-        level1Scene = 0,
+        Room1Scene = 0,
+        Room2Scene = 1,
     }
 }

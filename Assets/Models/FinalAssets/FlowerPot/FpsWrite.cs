@@ -4,6 +4,8 @@ using UnityEngine;
 public class FpsWrite : MonoBehaviour
 {
     [SerializeField] private TMP_Text displayText;
+    [SerializeField] private bool wholeNumbersOnly = false;
+
     private float fpsNumerator;
     private float fpsDenominator;
     private float fps1perc;
@@ -11,7 +13,7 @@ public class FpsWrite : MonoBehaviour
 
     private void Update()
     {
-        float fps = 1.0f / Time.deltaTime;
+        float fps = 1.0f / Time.unscaledDeltaTime;
         fpsNumerator += fps;
         fpsDenominator += 1.0f;
 
@@ -29,7 +31,14 @@ public class FpsWrite : MonoBehaviour
 
         if (Time.frameCount % 15 == 0)
         {
-            displayText.text = $"{(fpsNumerator / fpsDenominator):F1} {fps1percCache:F1}";
+            if (wholeNumbersOnly)
+            {
+                displayText.text = $"{(fpsNumerator / fpsDenominator):F0} {fps1percCache:F0}";
+            }
+            else
+            {
+                displayText.text = $"{(fpsNumerator / fpsDenominator):F1} {fps1percCache:F1}";
+            }
             fpsNumerator = 0.0f;
             fpsDenominator = 0.0f;
         }

@@ -9,19 +9,24 @@ namespace JdnUniPlat.Loading
         [SerializeField] private InputActionReference restartBinds;
         [SerializeField] private SceneAbstraction sceneToLoad;
 
-        private void RestartRun(InputAction.CallbackContext context)
+        private void RestartRunHandler(InputAction.CallbackContext context)
+        {
+            RestartRun();
+        }
+
+        public void RestartRun()
         {
             SceneManager.LoadScene((int)sceneToLoad);
         }
 
         private void OnEnable()
         {
-            restartBinds.action.performed += RestartRun;
+            restartBinds.action.performed += RestartRunHandler;
         }
 
         private void OnDisable()
         {
-            restartBinds.action.performed -= RestartRun;
+            restartBinds.action.performed -= RestartRunHandler;
         }
     }
 }
