@@ -18,7 +18,7 @@ namespace JdnUniPlat.HUD
 
         private void UpdateUI()
         {
-            timerText.text = $"{Mathf.Round(timeSinceStart * 100) / 100}";
+            timerText.text = (Mathf.Round(timeSinceStart * 100) / 100).ToString("F2");
         }
 
         public void StartTimer()
