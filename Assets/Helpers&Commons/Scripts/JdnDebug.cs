@@ -11,4 +11,14 @@ public class JdnDebug : MonoBehaviour
             Debug.Log($"Collided with: {collision.collider.name}");
         }
     }
+
+    private void OnTriggerEnter(Collider collider)
+    {
+        if (PrintCollidedColliders)
+        {
+            Debug.Log($"Triggered by : {collider.name}");
+        }
+    }
+
+
 }

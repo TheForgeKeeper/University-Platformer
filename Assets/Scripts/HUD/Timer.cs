@@ -41,5 +41,10 @@ namespace JdnUniPlat.HUD
             timeSinceStart = 0;
             isTimerRunning = true;
         }
+
+        public float GetTimePassed ()
+        {
+            return timeSinceStart;
+        }
     }
 }

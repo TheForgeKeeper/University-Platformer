@@ -14,5 +14,8 @@ public class WinScreenAppear : MonoBehaviour
         foreach (InputActionReference Action in mapsToDisable) Action.action.actionMap.Disable();
         winScreenCanvas.enabled = true;
         OnWin?.Invoke();
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 }
