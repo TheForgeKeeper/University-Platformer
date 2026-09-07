@@ -1,11 +1,12 @@
 using System.IO;
 using UnityEngine;
 
-public class SaveLoadManager : MonoBehaviour
+public class 
+    SaveLoadManager : MonoBehaviour
 {
     private UniPlatData hoistedData;
 
-    private void Start()
+    private void Awake()
     {
         hoistedData = loadData();
     }
@@ -21,6 +22,21 @@ public class SaveLoadManager : MonoBehaviour
     public levelData LoadLevelFromHoisted(int levelIndex)
     {
         return hoistedData.levels[levelIndex];
+    }
+
+    public float loadFOVFromHoisted()
+    {
+        return hoistedData.FOV;
+    }
+
+    public float loadSensitivityFromHoisted()
+    {
+        return hoistedData.Sensitivity;
+    }
+
+    private void OnApplicationQuit()
+    {
+        SaveHoistedData();
     }
 
     public void SaveLevelToHoisted(int levelIndex, levelData data)
@@ -49,8 +65,10 @@ public class SaveLoadManager : MonoBehaviour
         try
         {
             string data = File.ReadAllText(Application.persistentDataPath + "/saveData.json");
+            
             if (data is string json)
             {
+                
                 return JsonUtility.FromJson<UniPlatData>(json);
             }
             else
