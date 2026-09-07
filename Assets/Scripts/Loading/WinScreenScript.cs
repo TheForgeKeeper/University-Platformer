@@ -41,7 +41,7 @@ public class WinScreenScript : MonoBehaviour
     public void OnWin()
     {
         float currentScore = timer.GetTimePassed();
-        levelData currentLevelData = saveLoadManager.LoadLevelFromHoisted(levelIndex);
+        LevelData currentLevelData = saveLoadManager.LoadLevelFromHoisted(levelIndex);
 
 
         if (currentScore < currentLevelData.bestTime)

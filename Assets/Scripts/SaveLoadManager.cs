@@ -14,12 +14,12 @@ public class
     [System.Serializable]
     private struct UniPlatData
     {
-        public levelData[] levels;
+        public LevelData[] levels;
         public float FOV;
         public float Sensitivity;
     }
 
-    public levelData LoadLevelFromHoisted(int levelIndex)
+    public LevelData LoadLevelFromHoisted(int levelIndex)
     {
         return hoistedData.levels[levelIndex];
     }
@@ -39,7 +39,7 @@ public class
         SaveHoistedData();
     }
 
-    public void SaveLevelToHoisted(int levelIndex, levelData data)
+    public void SaveLevelToHoisted(int levelIndex, LevelData data)
     {
         hoistedData.levels[levelIndex] = data;
     }
@@ -87,10 +87,10 @@ public class
     private UniPlatData EmptyUniPlatData()
     {
         UniPlatData data = new UniPlatData();
-        data.levels = new levelData[6];
+        data.levels = new LevelData[6];
         for (int i = 0; i < data.levels.Length; i++)
         {
-            data.levels[i] = new levelData() { bestTime = float.MaxValue, isCompleted = false };
+            data.levels[i] = new LevelData() { bestTime = float.MaxValue, isCompleted = false };
         }
         data.FOV = .4f;
         data.Sensitivity = .4f;
@@ -106,7 +106,7 @@ public class
 
 
 [System.Serializable]
-public struct levelData
+public struct LevelData
 {
     public float bestTime;
     public bool isCompleted;
