@@ -7116,7 +7116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 731b82ade33a93b46bdfa640a9cbb733, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LoadSceneAbsBased
-  sceneToLoad: 1
+  sceneToLoad: 2
 --- !u!1 &1191535720
 GameObject:
   m_ObjectHideFlags: 0
@@ -8127,7 +8127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::JdnUniPlat.Loading.RestartScript
   restartBinds: {fileID: -5993490310415638341, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  sceneToLoad: 0
+  sceneToLoad: 1
 --- !u!4 &1360758141
 Transform:
   m_ObjectHideFlags: 0
@@ -9981,11 +9981,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OptionsSliderManage
   fovSlider: {fileID: 1519905638}
-  sensitivity: {fileID: 112925716}
+  sensitivitySldier: {fileID: 112925716}
   fovRange: {x: 25, y: 95}
   sensitivityGainRange: {x: 2, y: 12}
   cineCam: {fileID: 215326085}
   cineInputController: {fileID: 215326081}
+  saveLoadManager: {fileID: 771886745}
 --- !u!1 &1732198748
 GameObject:
   m_ObjectHideFlags: 0
@@ -12723,6 +12724,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.Loading.ReadyScreenScript
   onReadyBinds: {fileID: 3884829082084738764, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   playerMap: {fileID: 1120369429361536294, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  UIMap: {fileID: 6396621212503207739, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   isNotReadyCanvas: {fileID: 2041552065}
   OnReady:
     m_PersistentCalls:

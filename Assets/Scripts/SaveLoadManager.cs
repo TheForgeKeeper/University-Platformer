@@ -96,7 +96,14 @@ public class
         data.Sensitivity = .4f;
         return data;
     }
+
+    private void OnDisable()
+    {
+        SaveHoistedData();
+    }
 }
+
+
 
 [System.Serializable]
 public struct levelData

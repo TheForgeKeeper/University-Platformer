@@ -34,6 +34,7 @@ public class OptionsSliderManage : MonoBehaviour
     public void OnFovChange(float value)
     {
         cineCam.Lens.FieldOfView = Mathf.Lerp(fovRange.x, fovRange.y, value);
+        saveLoadManager.SaveFOVToHoisted(value);
     }
 
     public void OnSensitivityChange(float value)
@@ -45,7 +46,9 @@ public class OptionsSliderManage : MonoBehaviour
                 axis.Input.Gain = Mathf.Lerp(sensitivityGainRange.x, sensitivityGainRange.y, value);
             }
         }
+        saveLoadManager.SaveSensitivityToHoisted(value);
+
     }
 
-    
+
 }
