@@ -932,7 +932,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 119893250}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1525,8 +1525,8 @@ GameObject:
   m_Component:
   - component: {fileID: 215326080}
   - component: {fileID: 215326085}
-  - component: {fileID: 215326084}
-  - component: {fileID: 215326083}
+  - component: {fileID: 215326087}
+  - component: {fileID: 215326088}
   - component: {fileID: 215326082}
   - component: {fileID: 215326081}
   - component: {fileID: 215326086}
@@ -1545,8 +1545,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 215326079}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.013414495, y: 0.98635143, z: -0.10471652, w: 0.12635455}
-  m_LocalPosition: {x: -0.78601265, y: 1.810858, z: 2.2909665}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.107999995, y: 1.2992, z: -1.1412}
   m_LocalScale: {x: 0.56, y: 0.56, z: 0.56}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1564,44 +1564,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89875cdc57c54474a8a74efd9b2a3b5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineInputAxisController
-  ScanRecursively: 1
+  ScanRecursively: 0
   SuppressInputWhileBlending: 1
   IgnoreTimeScale: 0
   m_ControllerManager:
     Controllers:
-    - Name: Look Orbit X
-      Owner: {fileID: 215326084}
+    - Name: Look X (Pan)
+      Owner: {fileID: 215326088}
       Enabled: 1
       Input:
         InputAction: {fileID: -5630151704836100654, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-        Gain: 5
+        Gain: 3
         CancelDeltaTime: 0
       InputValue: 0
       Driver:
-        AccelTime: 0.4
-        DecelTime: 0.4
-    - Name: Look Orbit Y
-      Owner: {fileID: 215326084}
+        AccelTime: 0
+        DecelTime: 0
+    - Name: Look Y (Tilt)
+      Owner: {fileID: 215326088}
       Enabled: 1
       Input:
         InputAction: {fileID: -5630151704836100654, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-        Gain: 5
+        Gain: 3
         CancelDeltaTime: 0
       InputValue: 0
       Driver:
-        AccelTime: 0.2
-        DecelTime: 0.2
-    - Name: Orbit Scale
-      Owner: {fileID: 215326084}
-      Enabled: 1
-      Input:
-        InputAction: {fileID: -8818298008870048363, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-        Gain: 8
-        CancelDeltaTime: 0
-      InputValue: 0
-      Driver:
-        AccelTime: 0.8
-        DecelTime: 0.8
+        AccelTime: 0
+        DecelTime: 0
   PlayerIndex: -1
   AutoEnableInputs: 0
 --- !u!114 &215326082
@@ -1621,98 +1610,6 @@ MonoBehaviour:
   references:
     version: 2
     RefIds: []
---- !u!114 &215326083
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 215326079}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f38bda98361e1de48a4ca2bd86ea3c17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineRotationComposer
-  Composition:
-    ScreenPosition: {x: 0, y: 0}
-    DeadZone:
-      Enabled: 0
-      Size: {x: 0.2, y: 0.2}
-    HardLimits:
-      Enabled: 0
-      Size: {x: 0.8, y: 0.8}
-      Offset: {x: 0, y: 0}
-  CenterOnActivate: 1
-  TargetOffset: {x: 0, y: 0, z: 0}
-  Damping: {x: 0.5, y: 0.5}
-  Lookahead:
-    Enabled: 0
-    Time: 0
-    Smoothing: 0
-    IgnoreY: 0
---- !u!114 &215326084
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 215326079}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b5d7c088409d9a40b7b09aa707777f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineOrbitalFollow
-  TargetOffset: {x: 0, y: 0, z: 0}
-  TrackerSettings:
-    BindingMode: 4
-    PositionDamping: {x: 0.3, y: 0.8, z: 0.3}
-    AngularDampingMode: 0
-    RotationDamping: {x: 1, y: 1, z: 1}
-    QuaternionDamping: 1
-  OrbitStyle: 1
-  Radius: 5
-  Orbits:
-    Top:
-      Radius: 1.67
-      Height: 2.1
-    Center:
-      Radius: 2.52
-      Height: 0.73
-    Bottom:
-      Radius: 2.02
-      Height: -0.79
-    SplineCurvature: 0.5
-  RecenteringTarget: 2
-  HorizontalAxis:
-    Value: 165.4
-    Center: 0
-    Range: {x: -180, y: 180}
-    Wrap: 1
-    Recentering:
-      Enabled: 0
-      Wait: 1
-      Time: 2
-    Restrictions: 0
-  VerticalAxis:
-    Value: 14.8
-    Center: 17.5
-    Range: {x: -10, y: 45}
-    Wrap: 0
-    Recentering:
-      Enabled: 0
-      Wait: 1
-      Time: 2
-    Restrictions: 0
-  RadialAxis:
-    Value: 1.4
-    Center: 1.4
-    Range: {x: 0.8, y: 2.2}
-    Wrap: 0
-    Recentering:
-      Enabled: 1
-      Wait: 5
-      Time: 2
-    Restrictions: 0
 --- !u!114 &215326085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1795,6 +1692,59 @@ MonoBehaviour:
     NearLimit: 5
     FarLimit: 30
     MaxQualityBoost: 0.2
+--- !u!114 &215326087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215326079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b617507da6d07e749b7efdb34e1173e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineFollow
+  TrackerSettings:
+    BindingMode: 4
+    PositionDamping: {x: 0.1, y: 0.1, z: 0.05}
+    AngularDampingMode: 0
+    RotationDamping: {x: 1, y: 1, z: 1}
+    QuaternionDamping: 1
+  FollowOffset: {x: 0, y: 0.25, z: 0}
+--- !u!114 &215326088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215326079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62d54399b04b4fa48a73e121d4937dd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachinePanTilt
+  ReferenceFrame: 0
+  RecenterTarget: 0
+  PanAxis:
+    Value: 0
+    Center: 0
+    Range: {x: -180, y: 180}
+    Wrap: 1
+    Recentering:
+      Enabled: 0
+      Wait: 1
+      Time: 2
+    Restrictions: 0
+  TiltAxis:
+    Value: 0
+    Center: 0
+    Range: {x: -70, y: 70}
+    Wrap: 0
+    Recentering:
+      Enabled: 0
+      Wait: 1
+      Time: 2
+    Restrictions: 0
 --- !u!1 &219825501
 GameObject:
   m_ObjectHideFlags: 0
@@ -13653,31 +13603,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5557333856165113299, guid: cf9e548161c646d439827e0a495292ee, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.9285227
+      value: -1.03451
       objectReference: {fileID: 0}
     - target: {fileID: 5557333856165113299, guid: cf9e548161c646d439827e0a495292ee, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.03761804
+      value: -0.4740399
       objectReference: {fileID: 0}
     - target: {fileID: 5557333856165113299, guid: cf9e548161c646d439827e0a495292ee, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.0266666
+      value: 2.5945
       objectReference: {fileID: 0}
     - target: {fileID: 5557333856165113299, guid: cf9e548161c646d439827e0a495292ee, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.12635455
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5557333856165113299, guid: cf9e548161c646d439827e0a495292ee, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.013414496
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5557333856165113299, guid: cf9e548161c646d439827e0a495292ee, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.98635143
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5557333856165113299, guid: cf9e548161c646d439827e0a495292ee, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.10471652
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5557333856165113299, guid: cf9e548161c646d439827e0a495292ee, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

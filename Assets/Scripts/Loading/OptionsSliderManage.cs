@@ -22,13 +22,16 @@ public class OptionsSliderManage : MonoBehaviour
         Debug.Log($"Loaded FOV: {saveLoadManager.loadFOVFromHoisted()}, Loaded Sensitivity: {saveLoadManager.loadSensitivityFromHoisted()}");
         cineCam.Lens.FieldOfView = Mathf.Lerp(fovRange.x, fovRange.y, fovSlider.value);
 
-        foreach (var axis in cineInputController.Controllers)
-        {
-            if (axis.Name == "Look Orbit X" || axis.Name == "Look Orbit Y")
-            {
-                axis.Input.Gain = Mathf.Lerp(sensitivityGainRange.x, sensitivityGainRange.y, sensitivitySldier.value);
-            }
-        }
+        //foreach (var axis in cineInputController.Controllers)
+        //{
+        //    if (axis.Name == "Look Orbit X" || axis.Name == "Look Orbit Y")
+        //    {
+        //        axis.Input.Gain = Mathf.Lerp(sensitivityGainRange.x, sensitivityGainRange.y, sensitivitySldier.value);
+        //    }
+        //}
+        cineInputController.Controllers[0].Input.Gain = Mathf.Lerp(sensitivityGainRange.x, sensitivityGainRange.y, sensitivitySldier.value);
+        cineInputController.Controllers[1].Input.Gain = Mathf.Lerp(sensitivityGainRange.x, sensitivityGainRange.y, sensitivitySldier.value);
+
     }
 
     public void OnFovChange(float value)
@@ -39,13 +42,15 @@ public class OptionsSliderManage : MonoBehaviour
 
     public void OnSensitivityChange(float value)
     {
-        foreach (var axis in cineInputController.Controllers)
-        {
-            if(axis.Name == "Look Orbit X" || axis.Name == "Look Orbit Y")
-            {
-                axis.Input.Gain = Mathf.Lerp(sensitivityGainRange.x, sensitivityGainRange.y, value);
-            }
-        }
+        //foreach (var axis in cineInputController.Controllers)
+        //{
+        //    if(axis.Name == "Look Orbit X" || axis.Name == "Look Orbit Y")
+        //    {
+        //        axis.Input.Gain = Mathf.Lerp(sensitivityGainRange.x, sensitivityGainRange.y, value);
+        //    }
+        //}
+        cineInputController.Controllers[0].Input.Gain = Mathf.Lerp(sensitivityGainRange.x, sensitivityGainRange.y, sensitivitySldier.value);
+        cineInputController.Controllers[1].Input.Gain = Mathf.Lerp(sensitivityGainRange.x, sensitivityGainRange.y, sensitivitySldier.value);
         saveLoadManager.SaveSensitivityToHoisted(value);
 
     }
